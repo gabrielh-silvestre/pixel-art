@@ -5,7 +5,7 @@ import Home from './pages/Home';
 
 function App() {
   return (
-    <div className="App">
+    <div className="h-screen bg-gray-800">
       <Home />
     </div>
   );
