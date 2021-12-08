@@ -16,7 +16,7 @@ export default function Pallete() {
   }, [colorQuantity]);
 
   return (
-    <section className="flex flex-wrap justify-center items-center w-48">
+    <section className="w-64 max-h-64 p-4 flex flex-wrap justify-center bg-gray-200 rounded-xl overflow-y-auto">
       {colors.map((color, i) => (
         <Color key={i} bgColor={color} />
       ))}
