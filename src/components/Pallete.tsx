@@ -7,7 +7,7 @@ import Color from './Color';
 
 export default function Pallete() {
   const [colors, setColors] = useState<string[]>([]);
-  const [colorQuantity] = useState(1);
+  const [colorQuantity] = useState(4);
 
   useEffect((): void => {
     for (let i = 0; i < colorQuantity; i += 1) {
@@ -16,7 +16,7 @@ export default function Pallete() {
   }, [colorQuantity]);
 
   return (
-    <section>
+    <section className="flex flex-wrap justify-center items-center w-48">
       {colors.map((color, i) => (
         <Color key={i} bgColor={color} />
       ))}
