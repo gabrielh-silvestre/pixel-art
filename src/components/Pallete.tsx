@@ -7,7 +7,7 @@ import Color from './Color';
 
 export default function Pallete() {
   const [colors, setColors] = useState<string[]>([]);
-  const [colorQuantity] = useState(4);
+  const [colorQuantity] = useState(16);
 
   useEffect((): void => {
     for (let i = 0; i < colorQuantity; i += 1) {
@@ -16,7 +16,7 @@ export default function Pallete() {
   }, [colorQuantity]);
 
   return (
-    <section className="w-64 max-h-64 p-4 flex flex-wrap justify-center bg-gray-200 rounded-xl overflow-y-auto">
+    <section className="w-64 min-h-0 max-h-64 p-4 flex flex-wrap justify-center bg-gray-200 rounded-xl overflow-y-auto">
       {colors.map((color, i) => (
         <Color key={i} bgColor={color} />
       ))}
