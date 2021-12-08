@@ -1,0 +1,12 @@
+.canvas :nth-child(1) :nth-last-child(1) {
+  border-radius: 0 12px 0 0;
+}
+.canvas :nth-child(1) :nth-child(1) {
+  border-radius: 12px 0 0 0;
+}
+.canvas :nth-last-child(1) :nth-last-child(1) {
+  border-radius: 0 0 12px 0;
+}
+.canvas :nth-last-child(1) :nth-child(1) {
+  border-radius: 0 0 0 12px;
+}
