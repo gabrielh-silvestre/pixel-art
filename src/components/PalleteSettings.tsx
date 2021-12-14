@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { usePallete } from '../hooks/usePallete';
+
+import { useArt } from '../hooks/useArt';
 
 export default function PalleteSettings() {
   const [manyColors, setManyColors] = useState(0);
-  const { setColorQuantity } = usePallete();
+  const { setColorQuantity } = useArt();
 
   const handleNewColorQuantity = () => {
     setColorQuantity(manyColors);
