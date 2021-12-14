@@ -7,8 +7,12 @@ interface PixelProps {
 }
 
 export default function Pixel({ size }: PixelProps) {
-  const { selectedColor } = useArt();
+  const { selectedColor, dragPaint, setDragPaint } = useArt();
   const [thisColor, setThisColor] = useState('white');
+
+  const handleDragPaint = () => {
+    dragPaint && setThisColor(selectedColor);
+  };
 
   return (
     <div
@@ -18,9 +22,13 @@ export default function Pixel({ size }: PixelProps) {
         height: `${384 / size}px`,
         backgroundColor: thisColor,
       }}
-      onClick={() => {
+      onMouseUp={() => setDragPaint(false)}
+      onMouseDown={() => {
         setThisColor(selectedColor);
+        setDragPaint(true);
       }}
+      onMouseOver={handleDragPaint}
+      onDragStart={() => false}
     />
   );
 }
