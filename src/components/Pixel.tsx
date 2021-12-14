@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { useColor } from '../hooks/useColor';
+
+import { useArt } from '../hooks/useArt';
 
 interface PixelProps {
   size: number;
 }
 
 export default function Pixel({ size }: PixelProps) {
-  const { selectedColor } = useColor();
+  const { selectedColor } = useArt();
   const [thisColor, setThisColor] = useState('white');
 
   return (

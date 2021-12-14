@@ -1,11 +1,11 @@
-import { useColor } from '../hooks/useColor';
+import { useArt } from '../hooks/useArt';
 
 interface ColorProps {
   bgColor: string;
 }
 
 export default function Color({ bgColor }: ColorProps) {
-  const { setSelectedColor } = useColor();
+  const { setSelectedColor } = useArt();
 
   return (
     <div

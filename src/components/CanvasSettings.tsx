@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-import { useCanvas } from '../hooks/useCanvas';
+import { useArt } from '../hooks/useArt';
 
 export default function CanvasSettings() {
   const [newSize, setNewSize] = useState(5);
-  const { setSize } = useCanvas();
+  const { setSize } = useArt();
 
   const handleNewCanvasSize = () => {
     setSize(newSize);

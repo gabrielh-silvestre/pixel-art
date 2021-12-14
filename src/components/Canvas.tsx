@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 
-import { useCanvas } from '../hooks/useCanvas';
+import { useArt } from '../hooks/useArt';
 
 import Lines from './Lines';
 
 export default function Canvas() {
-  const { size } = useCanvas();
+  const { size } = useArt();
   const [lines, setLines] = useState<JSX.Element[]>([]);
 
   const genLines = () => {
