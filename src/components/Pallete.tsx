@@ -1,15 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
+import { usePallete } from '../hooks/usePallete'
 import { getRandomColor } from '../services';
 
 import Color from './Color';
 
 export default function Pallete() {
+  const { colorQuantity } = usePallete();
   const [colors, setColors] = useState<string[]>([]);
-  const [colorQuantity] = useState(16);
 
   useEffect((): void => {
+    setColors([]);
+
     for (let i = 0; i < colorQuantity; i += 1) {
       setColors((prevColors): string[] => [...prevColors, getRandomColor()]);
     }
