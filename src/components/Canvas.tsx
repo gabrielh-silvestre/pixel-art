@@ -1,21 +1,24 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 
+import { useCanvas } from '../hooks/useCanvas';
+
 import Lines from './Lines';
 
 export default function Canvas() {
-  const [size] = useState(5);
+  const { size } = useCanvas();
   const [lines, setLines] = useState<JSX.Element[]>([]);
 
   const genLines = () => {
+    setLines([]);
     for (let i = 0; i < size; i += 1) {
-      setLines((prevLines) => [...prevLines, <Lines key={i} amount={size} />]);
+      setLines((prevLines) => [...prevLines, <Lines key={`${i}-${size}`} amount={size} />]);
     }
   };
 
-  useEffect((): void => {
+  useEffect(() => {
     genLines();
-  }, []);
+  }, [size]);
 
   return (
     <section className="canvas w-96 h-96 rounded-xl">
