@@ -24,8 +24,17 @@ export default function Canvas() {
   }, [size]);
 
   return (
-    <section className="canvas w-96 h-96 rounded-xl">
-      {lines.map((line) => line)}
-    </section>
+    <div className="flex-col items-center">
+      <section className="canvas w-96 h-96 rounded-xl">
+        {lines.map((line) => line)}
+      </section>
+      <button
+        type="button"
+        className="w-full mt-4 py-1 px-3 bg-gray-200 rounded-md"
+        onClick={genLines}
+      >
+        Reset
+      </button>
+    </div>
   );
 }
