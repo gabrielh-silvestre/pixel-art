@@ -3,7 +3,7 @@ import React from 'react';
 export default function Header() {
   return (
     <header className="w-full py-4 bg-green-700">
-      <div className="w-4/5 mx-auto flex justify-between items-center">
+      <div className="max-w-screen-xl mx-auto flex justify-between items-center">
         <h1 className="text-3xl">Pixel Art</h1>
 
         <nav className="text-lg">
