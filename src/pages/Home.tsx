@@ -12,7 +12,7 @@ export default function Home() {
     <div>
       <Header />
       <ArtProvider>
-        <main className="max-w-screen-xl mx-auto mt-12 flex justify-between">
+        <main className="max-w-screen-xl mx-auto mt-12 px-12 flex justify-between">
           <div className="h-full flex flex-col justify-around items-center">
             <Pallete />
             <Eraser />
