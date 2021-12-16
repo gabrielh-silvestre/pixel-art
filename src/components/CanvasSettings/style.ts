@@ -24,5 +24,5 @@ export const SettinsButton = tw.button`
   py-1
   px-3
   bg-green-dark
-  rounded-xl
+  rounded-md
 `;
