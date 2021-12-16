@@ -1,9 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { useArt } from '../hooks/useArt';
+import { useArt } from '../../hooks/useArt';
 
-import Lines from './Lines';
+import { Button, CanvasContainer, Container } from './style';
+import Lines from '../Lines';
 
 export default function Canvas() {
   const { size } = useArt();
@@ -20,28 +21,27 @@ export default function Canvas() {
     }
   };
 
-  const genRandomKey = () => Math.round(Math.random() * 100);
+  const genRandomKey = () => Math.round(Math.random() * 1000);
 
   const resetCanvas = () => {
     setResetCanvasKey(genRandomKey());
-  }
+  };
 
   useEffect(() => {
     genLines();
   }, [size]);
 
   return (
-    <div className="flex-col items-center">
-      <section key={resetCanvasKey} className="canvas w-96 h-96 rounded-xl">
+    <Container>
+      <CanvasContainer key={resetCanvasKey}>
         {lines.map((line) => line)}
-      </section>
-      <button
+      </CanvasContainer>
+      <Button
         type="button"
-        className="w-full mt-4 py-1 px-3 bg-gray-200 rounded-md"
         onClick={resetCanvas}
       >
         Reset
-      </button>
-    </div>
+      </Button>
+    </Container>
   );
 }

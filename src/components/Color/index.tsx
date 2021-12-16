@@ -1,4 +1,6 @@
-import { useArt } from '../hooks/useArt';
+import { useArt } from '../../hooks/useArt';
+
+import { ColorContainer } from './style';
 
 interface ColorProps {
   bgColor: string;
@@ -8,9 +10,8 @@ export default function Color({ bgColor }: ColorProps) {
   const { setSelectedColor } = useArt();
 
   return (
-    <div
-      className="w-12 h-12 mx-1 rounded-full shadow"
-      style={{ backgroundColor: bgColor }}
+    <ColorContainer
+      bgColor={ bgColor }
       onClick={() => setSelectedColor(bgColor)}
     />
   );

@@ -1,30 +1,30 @@
-import React from 'react';
+import { Container, ContentContainer, Navigation, NavLinks } from './style';
 
 export default function Header() {
   return (
-    <header className="w-full py-4 bg-green-700">
-      <div className="max-w-screen-xl mx-auto px-12 flex justify-between items-center">
-        <h1 className="text-3xl">Pixel Art</h1>
+    <Container>
+      <ContentContainer>
+        <h1>Pixel Art</h1>
 
-        <nav className="text-lg">
-          <a
+        <Navigation>
+          <NavLinks
             href="https://github.com/gabrielh-silvestre"
             target="_blank"
             rel="noopener noreferrer"
             className="mr-6"
           >
             GitHub
-          </a>
+          </NavLinks>
 
-          <a
+          <NavLinks
             href="https://www.linkedin.com/in/gabrielh-silvestre/"
             target="_blank"
             rel="noopener noreferrer"
           >
             Linkedin
-          </a>
-        </nav>
-      </div>
-    </header>
+          </NavLinks>
+        </Navigation>
+      </ContentContainer>
+    </Container>
   );
 }

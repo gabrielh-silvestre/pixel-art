@@ -1,10 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 
-import { useArt } from '../hooks/useArt';
-import { getRandomColor } from '../services';
+import { useArt } from '../../hooks/useArt';
+import { getRandomColor } from '../../services';
 
-import Color from './Color';
+import { Container } from './style';
+import Color from '../Color';
 
 export default function Pallete() {
   const { colorQuantity } = useArt();
@@ -19,10 +20,10 @@ export default function Pallete() {
   }, [colorQuantity]);
 
   return (
-    <section className="w-64 min-h-0 max-h-64 p-4 flex flex-wrap justify-center bg-gray-200 rounded-xl overflow-y-auto">
+    <Container>
       {colors.map((color, i) => (
         <Color key={i} bgColor={color} />
       ))}
-    </section>
+    </Container>
   );
 }
