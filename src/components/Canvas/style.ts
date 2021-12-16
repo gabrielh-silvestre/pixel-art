@@ -17,4 +17,10 @@ export const Button = tw.button`
   px-3
   bg-gray-light
   rounded-md
+
+  filter
+  transition-all
+  duration-300
+
+  hover:brightness-75
 `;
