@@ -10,3 +10,8 @@
 .canvas :nth-last-child(1) :nth-child(1) {
   border-radius: 0 0 0 12px;
 }
+
+.canvas {
+  width: 650px;
+  height: 650px;
+}

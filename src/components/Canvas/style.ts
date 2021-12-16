@@ -7,8 +7,6 @@ export const Container = tw.section`
 
 export const CanvasContainer = tw.div`
   canvas
-  w-96
-  h-96
   rounded-xl
 `;
 
