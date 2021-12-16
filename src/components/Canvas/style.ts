@@ -15,8 +15,13 @@ export const Button = tw.button`
   mt-4
   py-1
   px-3
-  bg-gray-light
+  bg-green-dark
   rounded-md
+
+  text-gray-light
+  text-lg
+
+  font-robot-condesed
 
   filter
   transition-all
