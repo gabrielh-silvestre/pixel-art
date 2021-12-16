@@ -4,7 +4,7 @@ export const HomeMain = tw.main`
   max-w-screen-xl
   mx-auto
   mt-12
-  px-12
+  px-24
   flex
   justify-between
 `;
