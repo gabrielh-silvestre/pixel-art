@@ -10,6 +10,8 @@ export const SettingsLabel = tw.label`
   flex
   flex-col
   text-gray-light
+  text-xl
+  font-lobster
 `;
 
 export const SettingsInput = tw.input`
@@ -25,4 +27,7 @@ export const SettinsButton = tw.button`
   px-3
   bg-green-dark
   rounded-md
+  text-gray-light
+  text-lg
+  font-robot-condesed
 `;
