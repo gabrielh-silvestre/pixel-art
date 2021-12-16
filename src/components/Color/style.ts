@@ -12,7 +12,7 @@ const ColorBg = styled.div<ColorProps>`
 export const ColorContainer = tw(ColorBg)`
   w-12
   h-12
-  mx-1
+  m-1
   rounded-full
   shadow
 `;
