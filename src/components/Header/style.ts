@@ -4,21 +4,23 @@ export const Container = tw.header`
   w-full
   py-4
   bg-green-dark
-  text-gray-dark
+  text-gray-light
 `;
 
-export const ContentContainer = tw.div`
+  export const ContentContainer = tw.div`
   max-w-screen-xl
   mx-auto
-  px-12
+  px-24
   flex
   justify-between
   items-center
-  text-3xl
+  font-lobster
+  text-4xl
 `;
 
 export const Navigation = tw.nav`
-  text-lg
+  text-xl
+  font-robot-condesed
 `;
 
 export const NavLinks = tw.a`
