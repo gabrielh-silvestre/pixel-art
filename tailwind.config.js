@@ -18,6 +18,10 @@ module.exports = {
       'gray-light': '#e1e5eb',
       'gray-dark': '#1a1b1c',
     },
+    fontFamily: {
+      'lobster': ['Lobster', 'cursive', 'sans'],
+      'robot-condesed': ['Roboto Condensed', 'sans'],
+    },
     extend: {},
   },
   variants: {
