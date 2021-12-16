@@ -7,6 +7,12 @@ interface ColorProps {
 
 const ColorBg = styled.div<ColorProps>`
   background-color: ${({ bgColor }) => bgColor};
+
+  transition: filter 0.3s;
+
+  &:hover {
+    filter: brightness(0.8);
+  }
 `;
 
 export const ColorContainer = tw(ColorBg)`
