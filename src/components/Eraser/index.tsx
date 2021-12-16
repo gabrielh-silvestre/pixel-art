@@ -1,4 +1,4 @@
-import { useArt } from '../hooks/useArt';
+import { useArt } from '../../hooks/useArt';
 
 export default function Eraser() {
   const { setSelectedColor } = useArt();
@@ -6,7 +6,7 @@ export default function Eraser() {
   return (
     <button
       type="button"
-      className="w-32 h-10 mt-8 bg-gray-200 rounded-md"
+      className="w-32 h-10 mt-8 bg-gray-light rounded-md"
       onClick={() => {
         setSelectedColor('white');
       }}
