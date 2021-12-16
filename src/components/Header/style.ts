@@ -3,7 +3,8 @@ import tw from 'tailwind-styled-components';
 export const Container = tw.header`
   w-full
   py-4
-  bg-green-700
+  bg-green-dark
+  text-gray-dark
 `;
 
 export const ContentContainer = tw.div`
