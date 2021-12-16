@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import Pixel from './Pixel';
+import Pixel from '../Pixel';
 
 interface LinesProps {
   amount: number;
