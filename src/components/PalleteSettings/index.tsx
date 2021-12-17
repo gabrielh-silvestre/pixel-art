@@ -32,6 +32,10 @@ export default function PalleteSettings() {
     }
   };
 
+  const handleUserType = ({ key }: React.KeyboardEvent<HTMLInputElement>) => {
+    if (key === 'Enter') setColorQuantity(manyColors);
+  };
+
   return (
     <SettingsContainer>
       <SettingsLabel htmlFor="many-colors-input">
@@ -41,6 +45,7 @@ export default function PalleteSettings() {
           id="many-colors-input"
           value={manyColors}
           onChange={handleColorsQuantity}
+          onKeyUp={handleUserType}
         />
       </SettingsLabel>
 
