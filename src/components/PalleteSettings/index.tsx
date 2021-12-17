@@ -20,7 +20,7 @@ export default function PalleteSettings() {
     setColorQuantity(manyColors);
   };
 
-  const handleColorsQunatity = ({
+  const handleColorsQuantity = ({
     target: { value },
   }: React.ChangeEvent<HTMLInputElement>) => {
     if (Number(value) > MAX_COLORS_NUMBER) {
@@ -40,7 +40,7 @@ export default function PalleteSettings() {
           type="number"
           id="many-colors-input"
           value={manyColors}
-          onChange={handleColorsQunatity}
+          onChange={handleColorsQuantity}
         />
       </SettingsLabel>
 
