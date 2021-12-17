@@ -13,7 +13,7 @@ const MIN_COLORS_NUMBER = 4;
 const MAX_COLORS_NUMBER = 64;
 
 export default function PalleteSettings() {
-  const [manyColors, setManyColors] = useState(4);
+  const [manyColors, setManyColors] = useState(16);
   const { setColorQuantity } = useArt();
 
   const handleNewColorQuantity = () => {
