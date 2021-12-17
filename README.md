@@ -31,6 +31,7 @@ Users should be able to?
 ### Screenshot
 
 ![](./src/assets/first_screen.png)
+![](./src/assets/custom_screen.png)
 
 ### Links
 
