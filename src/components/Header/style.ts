@@ -5,6 +5,8 @@ export const Container = tw.header`
   py-4
   bg-green-dark
   text-gray-light
+
+  cursor-default
 `;
 
   export const ContentContainer = tw.div`
