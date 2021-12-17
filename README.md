@@ -1,6 +1,6 @@
 #Pixel Art
 
-This project is a refactoring of [Trybe Pallet](https://gabrielh-silvestre.github.io/pixel_art/index.html) build to help me improve me undertandment about React.
+This project is a refactoring of [Trybe Pallet](https://gabrielh-silvestre.github.io/pixel_art/index.html) build to help me improve me understanding about React.
 
 ## Table of contents
 
