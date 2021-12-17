@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { useArt } from '../../hooks/useArt';
 
@@ -32,6 +32,10 @@ export default function CanvasSettings() {
     }
   };
 
+  const handleUserType = ({ key }: React.KeyboardEvent<HTMLInputElement>) => {
+    if (key === 'Enter') setSize(newSize);
+  };
+
   return (
     <SettingsContainer>
       <SettingsLabel htmlFor="many-colors-input">
@@ -41,6 +45,7 @@ export default function CanvasSettings() {
           id="many-colors-input"
           value={newSize}
           onChange={handleCanvasSize}
+          onKeyUp={handleUserType}
         />
       </SettingsLabel>
 
