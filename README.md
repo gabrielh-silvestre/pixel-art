@@ -1,4 +1,4 @@
-#Pixel Art
+# Pixel Art
 
 This project is a refactoring of [Trybe Pallet](https://gabrielh-silvestre.github.io/pixel_art/index.html) build to help my improve me understanding about React.
 
@@ -65,4 +65,4 @@ I just used the official docs to consult.
 
 ## Author
 
-- Linkedin - [Gabriel Silvetre](https://www.linkedin.com/in/gabrielh-silvestre/)
+- Linkedin - [Gabriel Silvestre](https://www.linkedin.com/in/gabrielh-silvestre/)
