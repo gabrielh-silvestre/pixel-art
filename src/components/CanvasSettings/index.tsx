@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { useArt } from '../../hooks/useArt';
 
@@ -9,12 +9,31 @@ import {
   SettinsButton,
 } from './style';
 
+const MAX_CANVAS_SIZE = 70;
+const MIN_CANVAS_SIZE = 5;
+
 export default function CanvasSettings() {
   const [newSize, setNewSize] = useState(5);
   const { setSize } = useArt();
 
   const handleNewCanvasSize = () => {
     setSize(newSize);
+  };
+
+  const handleCanvasSize = ({
+    target: { value },
+  }: React.ChangeEvent<HTMLInputElement>) => {
+    if (Number(value) > MAX_CANVAS_SIZE) {
+      setNewSize(MAX_CANVAS_SIZE);
+    } else if (Number(value) < MIN_CANVAS_SIZE) {
+      setNewSize(MIN_CANVAS_SIZE);
+    } else {
+      setNewSize(Number.parseInt(value, 10));
+    }
+  };
+
+  const handleUserType = ({ key }: React.KeyboardEvent<HTMLInputElement>) => {
+    if (key === 'Enter') setSize(newSize);
   };
 
   return (
@@ -24,9 +43,9 @@ export default function CanvasSettings() {
         <SettingsInput
           type="number"
           id="many-colors-input"
-          onChange={({ target: { value } }) => {
-            setNewSize(Number.parseInt(value, 10));
-          }}
+          value={newSize}
+          onChange={handleCanvasSize}
+          onKeyUp={handleUserType}
         />
       </SettingsLabel>
 

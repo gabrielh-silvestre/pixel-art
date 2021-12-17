@@ -3,6 +3,7 @@ import tw from 'tailwind-styled-components';
 
 interface ColorProps {
   bgColor: string;
+  $isSelected: boolean;
 }
 
 const ColorBg = styled.div<ColorProps>`
@@ -19,6 +20,7 @@ export const ColorContainer = tw(ColorBg)`
   filter
   transition-all
   duration-300
+  ${({ $isSelected }) => $isSelected ? 'ring-4' : 'ring-0'}
 
   hover:brightness-75
 `;

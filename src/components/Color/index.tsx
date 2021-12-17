@@ -7,11 +7,12 @@ interface ColorProps {
 }
 
 export default function Color({ bgColor }: ColorProps) {
-  const { setSelectedColor } = useArt();
+  const { setSelectedColor, selectedColor } = useArt();
 
   return (
     <ColorContainer
       bgColor={ bgColor }
+      $isSelected={ bgColor === selectedColor}
       onClick={() => setSelectedColor(bgColor)}
     />
   );

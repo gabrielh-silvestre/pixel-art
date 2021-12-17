@@ -15,7 +15,9 @@ export default function Pallete() {
     setColors([]);
 
     for (let i = 0; i < colorQuantity; i += 1) {
-      setColors((prevColors): string[] => [...prevColors, getRandomColor()]);
+      i === 0
+        ? setColors((prevColors): string[] => [...prevColors, 'black'])
+        : setColors((prevColors): string[] => [...prevColors, getRandomColor()]);
     }
   }, [colorQuantity]);
 
