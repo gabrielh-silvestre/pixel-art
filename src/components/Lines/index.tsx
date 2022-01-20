@@ -14,7 +14,7 @@ export default function Lines({ amount }: LinesProps) {
     for (let i = 0; i < amount; i += 1) {
       setPixels((prevPixels) => [
         ...prevPixels,
-        <Pixel key={i} size={amount} />,
+        <Pixel size={amount} index={i} />,
       ]);
     }
   };
