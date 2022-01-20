@@ -9,10 +9,12 @@ interface ArtContextData {
   selectedColor: string;
   colorQuantity: number;
   dragPaint: boolean;
+  resetCanvas: boolean;
   setSize: (newSize: number) => void;
   setSelectedColor: (color: string) => void;
   setColorQuantity: (colorNumber: number) => void;
   setDragPaint: (isToDrag: boolean) => void;
+  setResetCanvas: (paintedColor: boolean) => void;
 }
 
 const ArtContext = createContext<ArtContextData>({} as ArtContextData);
@@ -22,6 +24,7 @@ export function ArtProvider({ children }: ArtContextProps) {
   const [size, setSize] = useState(5);
   const [selectedColor, setSelectedColor] = useState('black');
   const [dragPaint, setDragPaint] = useState(false);
+  const [resetCanvas, setResetCanvas] = useState(true);
 
   return (
     <ArtContext.Provider
@@ -30,10 +33,12 @@ export function ArtProvider({ children }: ArtContextProps) {
         selectedColor,
         colorQuantity,
         dragPaint,
+        resetCanvas,
         setSize,
         setSelectedColor,
         setColorQuantity,
         setDragPaint,
+        setResetCanvas,
       }}
     >
       {children}
