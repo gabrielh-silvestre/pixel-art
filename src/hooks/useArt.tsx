@@ -17,12 +17,6 @@ interface ArtContextData {
   setResetCanvas: (paintedColor: boolean) => void;
 }
 
-const MAX_CANVAS_SIZE = 70;
-const MIN_CANVAS_SIZE = 5;
-
-const MAX_COLORS_NUMBER = 64;
-const MIN_COLORS_NUMBER = 4;
-
 const ArtContext = createContext<ArtContextData>({} as ArtContextData);
 
 export function ArtProvider({ children }: ArtContextProps) {
@@ -31,43 +25,13 @@ export function ArtProvider({ children }: ArtContextProps) {
   const [dragPaint, setDragPaint] = useState(false);
   const [resetCanvas, setResetCanvas] = useState(true);
 
-  const handleCanvasSize = (newSize: number) => {
-    if (newSize > MAX_CANVAS_SIZE) {
-      setQuantity({
-        ...quantity,
-        canvas: MAX_CANVAS_SIZE,
-      });
-    } else if (newSize < MIN_CANVAS_SIZE) {
-      setQuantity({
-        ...quantity,
-        canvas: MIN_CANVAS_SIZE,
-      });
-    } else {
-      setQuantity({
-        ...quantity,
-        canvas: newSize,
-      });
-    }
-  }
+  const handleCanvasSize = (newCanvasSize: number) => {
+    setQuantity({ ...quantity, canvas: newCanvasSize });
+  };
 
-  const handlePalleteSize = (newSize: number) => {
-    if (newSize > MAX_COLORS_NUMBER) {
-      setQuantity({
-        ...quantity,
-        colors: MAX_COLORS_NUMBER,
-      });
-    } else if (newSize < MIN_COLORS_NUMBER) {
-      setQuantity({
-        ...quantity,
-        colors: MIN_COLORS_NUMBER,
-      });
-    } else {
-      setQuantity({
-        ...quantity,
-        colors: newSize,
-      });
-    }
-  }
+  const handlePalleteSize = (newColorQuantity: number) => {
+    setQuantity({ ...quantity, colors: newColorQuantity });
+  };
 
   return (
     <ArtContext.Provider
