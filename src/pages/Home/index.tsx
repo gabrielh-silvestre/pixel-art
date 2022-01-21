@@ -28,7 +28,7 @@ export default function Home() {
               label='Quantas cores?'
               maxValue={MAX_COLORS_NUMBER}
               minValue={MIN_COLORS_NUMBER}
-              initialQuatity={MIN_COLORS_NUMBER}
+              initialQuatity={16}
             />
             <Settings
               settingType='canvas'
