@@ -6,7 +6,7 @@ interface PixelBgProps {
   bgColor: string;
 }
 
-const CANVAS_SIZE = 650;
+const CANVAS_SIZE = 530;
 
 const PixelBg = styled.div<PixelBgProps>`
   width: ${({ size }) => CANVAS_SIZE / size}px;
