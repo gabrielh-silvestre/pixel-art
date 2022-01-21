@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { useArt } from '../../hooks/useArt';
+import { dragPreventDefault } from '../../services';
 
 import { PixelContainer } from './style';
 
@@ -10,7 +11,7 @@ interface PixelProps {
 }
 
 export default function Pixel({ size, index }: PixelProps) {
-  const { selectedColor, dragPaint, resetCanvas, setDragPaint } = useArt();
+  const { selectedColor, dragPaint, resetCanvas } = useArt();
   const [thisColor, setThisColor] = useState('white');
 
   const handleDragPaint = () => {
@@ -18,8 +19,9 @@ export default function Pixel({ size, index }: PixelProps) {
   };
 
   const handleStartPaint = () => {
-    setThisColor(selectedColor);
-    setDragPaint(true);
+    if (thisColor !== selectedColor) {
+      setThisColor(selectedColor);
+    }
   };
 
   useEffect(() => {
@@ -31,10 +33,9 @@ export default function Pixel({ size, index }: PixelProps) {
       key={`${thisColor}+${index}`}
       size={size}
       bgColor={thisColor}
-      onMouseUp={() => setDragPaint(false)}
       onMouseDown={handleStartPaint}
       onMouseOver={handleDragPaint}
-      onDragStart={() => false}
+      onDragStart={dragPreventDefault}
     />
   );
 }
