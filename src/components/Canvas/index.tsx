@@ -7,7 +7,7 @@ import { Button, CanvasContainer, Container } from './style';
 import Lines from '../Lines';
 
 export default function Canvas() {
-  const { size, resetCanvas,  setResetCanvas } = useArt();
+  const { size, resetCanvas, setResetCanvas, setDragPaint } = useArt();
   const [lines, setLines] = useState<JSX.Element[]>([]);
 
   const genLines = () => {
@@ -30,7 +30,13 @@ export default function Canvas() {
 
   return (
     <Container>
-      <CanvasContainer>{lines.map((line) => line)}</CanvasContainer>
+      <CanvasContainer
+        onMouseDown={() => setDragPaint(true)}
+        onMouseUp={() => setDragPaint(false)}
+        onMouseLeave={() => setDragPaint(false)}
+      >
+        {lines.map((line) => line)}
+      </CanvasContainer>
       <Button type="button" onClick={resetPaintedPixels}>
         Reset
       </Button>
