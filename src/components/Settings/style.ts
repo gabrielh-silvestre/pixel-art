@@ -1,12 +1,20 @@
+import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 
-export const SettingsContainer = tw.div`
+const settingsContainer = styled.label`
+  &:first-of-type {
+    margin-top: 1.5rem;
+  }
+`;
+
+export const SettingsContainer = tw(settingsContainer)`
+  p-4
+
   flex
   items-end
 `;
 
 export const SettingsLabel = tw.label`
-  mt-6
   flex
   flex-col
   text-gray-light
@@ -15,6 +23,8 @@ export const SettingsLabel = tw.label`
 `;
 
 export const SettingsInput = tw.input`
+  w-full
+
   h-8
   pl-4
   rounded-md
