@@ -30,7 +30,15 @@ export function Settings(props: SettingsProps) {
   const handleQuantity = ({
     target: { value },
   }: React.ChangeEvent<HTMLInputElement>) => {
-    setQuatity(Number.parseInt(value, 10));
+    const { minValue: MIN_QUANTITY, maxValue: MAX_QUANTITY } = props;
+
+    if (Number(value) > MAX_QUANTITY) {
+      setQuatity(MAX_QUANTITY);
+    } else if (Number(value) < MIN_QUANTITY) {
+      setQuatity(MIN_QUANTITY);
+    } else {
+      setQuatity(Number.parseInt(value, 10));
+    }
   };
 
   const handleUserType = ({ key }: React.KeyboardEvent<HTMLInputElement>) => {
