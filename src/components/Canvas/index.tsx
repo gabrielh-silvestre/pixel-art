@@ -12,7 +12,7 @@ export default function Canvas() {
 
   const genLines = () => {
     setLines([]);
-    for (let i = 0; i < size; i += 1) {
+    for (let i = size; i > 0; i -= 1) {
       setLines((prevLines) => [
         ...prevLines,
         <Lines key={`${i}-${size}`} amount={size} />,
