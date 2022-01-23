@@ -6,8 +6,9 @@ export const Container = tw.section`
 `;
 
 export const CanvasContainer = tw.div`
-  canvas
   rounded-xl
+
+  overflow-hidden
 `;
 
 export const Button = tw.button`

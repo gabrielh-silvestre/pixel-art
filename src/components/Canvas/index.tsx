@@ -7,13 +7,12 @@ import { Button, CanvasContainer, Container } from './style';
 import Lines from '../Lines';
 
 export default function Canvas() {
-  const { size } = useArt();
+  const { size, resetCanvas, setResetCanvas, setDragPaint } = useArt();
   const [lines, setLines] = useState<JSX.Element[]>([]);
-  const [resetCanvasKey, setResetCanvasKey] = useState(0);
 
   const genLines = () => {
     setLines([]);
-    for (let i = 0; i < size; i += 1) {
+    for (let i = size; i > 0; i -= 1) {
       setLines((prevLines) => [
         ...prevLines,
         <Lines key={`${i}-${size}`} amount={size} />,
@@ -21,10 +20,8 @@ export default function Canvas() {
     }
   };
 
-  const genRandomKey = () => Math.round(Math.random() * 1000);
-
-  const resetCanvas = () => {
-    setResetCanvasKey(genRandomKey());
+  const resetPaintedPixels = () => {
+    setResetCanvas(!resetCanvas);
   };
 
   useEffect(() => {
@@ -33,13 +30,14 @@ export default function Canvas() {
 
   return (
     <Container>
-      <CanvasContainer key={resetCanvasKey}>
+      <CanvasContainer
+        onMouseDown={() => setDragPaint(true)}
+        onMouseUp={() => setDragPaint(false)}
+        onMouseLeave={() => setDragPaint(false)}
+      >
         {lines.map((line) => line)}
       </CanvasContainer>
-      <Button
-        type="button"
-        onClick={resetCanvas}
-      >
+      <Button type="button" onClick={resetPaintedPixels}>
         Reset
       </Button>
     </Container>

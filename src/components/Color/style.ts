@@ -8,6 +8,7 @@ interface ColorProps {
 
 const ColorBg = styled.div<ColorProps>`
   background-color: ${({ bgColor }) => bgColor};
+  border-color: ${({ bgColor }) => bgColor};
 `;
 
 export const ColorContainer = tw(ColorBg)`
@@ -19,8 +20,9 @@ export const ColorContainer = tw(ColorBg)`
 
   filter
   transition-all
-  duration-300
+  duration-200
   ${({ $isSelected }) => $isSelected ? 'ring-4' : 'ring-0'}
 
-  hover:brightness-75
+  hover:border-8
+  hover:bg-gray-light
 `;
