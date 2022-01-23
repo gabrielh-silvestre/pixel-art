@@ -8,7 +8,7 @@ import { Settings } from '../../components/Settings';
 
 import { ContentContainer, HomeMain } from './style';
 
-const MAX_CANVAS_SIZE = 70;
+const MAX_CANVAS_SIZE = 50;
 const MIN_CANVAS_SIZE = 5;
 
 const MAX_COLORS_NUMBER = 64;
