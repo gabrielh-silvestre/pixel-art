@@ -19,14 +19,12 @@ export default function Pixel({ size, index }: PixelProps) {
   };
 
   const handleStartPaint = () => {
-    if (thisColor !== selectedColor) {
-      setThisColor(selectedColor);
-    }
+    setThisColor(selectedColor);
   };
 
   useEffect(() => {
     setThisColor('white');
-  }, [resetCanvas])
+  }, [resetCanvas]);
 
   return (
     <PixelContainer
