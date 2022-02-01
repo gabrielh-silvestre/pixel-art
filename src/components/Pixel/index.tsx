@@ -6,12 +6,11 @@ import { dragPreventDefault } from '../../services';
 import { PixelContainer } from './style';
 
 interface PixelProps {
-  size: number;
   index: number;
 }
 
-export default function Pixel({ size, index }: PixelProps) {
-  const { selectedColor, dragPaint, resetCanvas } = useArt();
+export default function Pixel({ index }: PixelProps) {
+  const { size, selectedColor, dragPaint, resetCanvas } = useArt();
   const [thisColor, setThisColor] = useState('white');
 
   const handleDragPaint = () => {
