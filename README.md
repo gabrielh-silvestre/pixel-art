@@ -53,7 +53,8 @@ In this project I understood the power and simplicity of the contexts in compare
 
 ### Continued development
 
-The biggest problem in this project is the performance when the canvas exced a size of 40x40, I plan to solve this problem untill february of 2022.
+~~The biggest problem in this project is the performance when the canvas exced a size of 40x40, I plan to solve this problem untill february of 2022.~~
+The problem of performance when canvas exceed a size of 40x40 has been solved on 01/02/2022. _(01 of February of 2022)_
 
 ### Useful resources
 
