@@ -1,27 +1,17 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from 'react';
+import { useArt } from '../../hooks/useArt';
 
 import Pixel from '../Pixel';
 
-interface LinesProps {
-  amount: number;
-}
 
-export default function Lines({ amount }: LinesProps) {
-  const [pixels, setPixels] = useState<JSX.Element[]>([]);
+export default function Lines() {
+  const { size } = useArt();
+  const pixels = new Array(size).fill(1);
 
-  const genPixel = (): void => {
-    for (let i = amount; i > 0; i -= 1) {
-      setPixels((prevPixels) => [
-        ...prevPixels,
-        <Pixel size={amount} index={i} />,
-      ]);
-    }
-  };
-
-  useEffect((): void => {
-    genPixel();
-  }, []);
-
-  return <div className="flex">{pixels.map((pixel) => pixel)}</div>;
+  return (
+    <div className="flex">
+      {pixels.map((_, i) => (
+        <Pixel index={i} />
+      ))}
+    </div>
+  );
 }
