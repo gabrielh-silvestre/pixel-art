@@ -1,8 +1,7 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
+import randomColor from 'randomcolor';
 
 import { useArt } from '../../hooks/useArt';
-import { getRandomColor } from '../../services';
 
 import { Container } from './style';
 import Color from '../Color';
@@ -11,14 +10,18 @@ export default function Pallete() {
   const { colorQuantity } = useArt();
   const [colors, setColors] = useState<string[]>([]);
 
-  useEffect((): void => {
-    setColors([]);
+  useEffect(() => {
+    const randomColors = randomColor({
+      count: colorQuantity - 1,
+      format: 'hex',
+      luminosity: 'random',
+      hue: 'random',
+    });
 
-    for (let i = 0; i < colorQuantity; i += 1) {
-      i === 0
-        ? setColors((prevColors): string[] => [...prevColors, 'black'])
-        : setColors((prevColors): string[] => [...prevColors, getRandomColor()]);
-    }
+    setColors([
+      'black',
+      ...randomColors,
+    ]);
   }, [colorQuantity]);
 
   return (
