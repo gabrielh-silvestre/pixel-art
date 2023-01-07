@@ -1,6 +1,5 @@
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: false,
+  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     borderWidth: {
       DEFAULT: '1px',
@@ -23,12 +22,6 @@ module.exports = {
       'robot-condesed': ['Roboto Condensed', 'sans'],
     },
     extend: {},
-  },
-  variants: {
-    extend: {
-      brightness: ['hover'],
-      borderWidth: ['hover'],
-    },
   },
   plugins: [],
 };
