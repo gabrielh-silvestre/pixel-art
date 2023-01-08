@@ -1,9 +1,11 @@
 import type { IBoard } from "../entity/Board.interface";
 
+import { Board } from "../entity/Board";
+
 export interface IBoardRepository {
-  get(id: string): Promise<IBoard>;
-  getAll(): Promise<IBoard[]>;
-  create(board: IBoard): void;
-  update(board: IBoard): void;
-  delete(id: string): void;
+  getById(id: string): Promise<IBoard | null>;
+  getAll(): Promise<Board[]>;
+  create(board: IBoard): Promise<void>;
+  update(board: IBoard): Promise<void>;
+  delete(id: string): Promise<void>;
 }
