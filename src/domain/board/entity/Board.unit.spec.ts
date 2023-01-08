@@ -1,9 +1,9 @@
-import { describe, it, expect, vi, beforeEach, afterEach, Mock } from "vitest";
+import { Mock } from "vitest";
 
 import type { IHashMap } from "@domain/shared/hash-map/IHashMap.interface";
-import type { IPixel } from "../value-object/Pixel/interface";
 
 import { Board } from "./Board";
+import { Pixel } from "../value-object/Pixel";
 import { BoardException } from "../exception/Board.exception";
 
 const FAKE_BOARD = {
@@ -13,7 +13,7 @@ const FAKE_BOARD = {
 };
 
 describe("Unit test for Board entity", () => {
-  let mockPixels: IHashMap<string, IPixel>;
+  let mockPixels: IHashMap<string, Pixel>;
 
   beforeEach(() => {
     mockPixels = {
@@ -21,11 +21,6 @@ describe("Unit test for Board entity", () => {
       add: vi.fn(),
       size: FAKE_BOARD.size,
     };
-  });
-
-  afterEach(() => {
-    (mockPixels.get as Mock).mockReset();
-    (mockPixels.add as Mock).mockReset();
   });
 
   it("should create a new Board successfully", () => {

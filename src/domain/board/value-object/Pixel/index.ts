@@ -1,6 +1,9 @@
 import type { IPixel } from "./interface";
+import type { IEvent } from "@domain/shared/event/Event.interface";
 
 import { PixelException } from "./exception";
+import { PixelEventDispatcher } from "@domain/board/event/dispatch/Pixel.event.dispatch";
+import { PaintBoardEvent } from "@domain/board/event/PaintBoard.event";
 
 export class Pixel implements IPixel {
   private readonly _id: string;
@@ -27,6 +30,10 @@ export class Pixel implements IPixel {
     return [this._x, this._y];
   }
 
+  private notify(event: IEvent<IPixel>) {
+    return PixelEventDispatcher.init().notify(event);
+  }
+
   changeColor(color: string): void {
     const isValidColor = /^#[0-9A-F]{6}$/i.test(color);
 
@@ -34,5 +41,7 @@ export class Pixel implements IPixel {
     if (color === this._color) return;
 
     this._color = color;
+
+    this.notify(new PaintBoardEvent(this));
   }
 }

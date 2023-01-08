@@ -1,9 +1,10 @@
 import type { IHashMap } from "@domain/shared/hash-map/IHashMap.interface";
-import type { IPixel } from "../value-object/Pixel/interface";
+
+import { Pixel } from "../value-object/Pixel";
 
 export interface IBoard {
   get id(): string;
   get title(): string;
   get proportion(): number;
-  get pixels(): IHashMap<string, IPixel>;
+  get pixels(): IHashMap<string, Pixel>;
 }

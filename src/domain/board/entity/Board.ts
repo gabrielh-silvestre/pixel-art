@@ -1,20 +1,22 @@
 import type { IBoard } from "./Board.interface";
-import type { IPixel } from "../value-object/Pixel/interface";
 import type { IHashMap } from "@domain/shared/hash-map/IHashMap.interface";
+import type { IEvent } from "@domain/shared/event/Event.interface";
 
+import { Pixel } from "../value-object/Pixel";
 import { BoardException } from "../exception/Board.exception";
+import { BoardEventDispatcher } from "../event/dispatch/Board.event.dispatch";
 
 export class Board implements IBoard {
   private readonly _id: string;
   private _title: string;
   private _proportion: number;
-  private _pixels: IHashMap<string, IPixel>;
+  private _pixels: IHashMap<string, Pixel>;
 
   constructor(
     id: string,
     title: string,
     proportion: number,
-    pixels: IHashMap<string, IPixel>
+    pixels: IHashMap<string, Pixel>
   ) {
     this._id = id;
     this._title = title;
@@ -34,8 +36,12 @@ export class Board implements IBoard {
     return this._proportion;
   }
 
-  get pixels(): IHashMap<string, IPixel> {
+  get pixels(): IHashMap<string, Pixel> {
     return this._pixels;
+  }
+
+  private notify(event: IEvent<IBoard>) {
+    return BoardEventDispatcher.init().notify(event);
   }
 
   changeTitle(title: string): void {
