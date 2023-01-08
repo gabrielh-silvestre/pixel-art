@@ -15,5 +15,7 @@ export default defineConfig({
     ],
     exclude: ["./src/**/*.interface.ts", "./src/**/*.dto.ts"],
     mockReset: true,
+    globals: true,
+    setupFiles: ["./vitest.setup.ts"],
   },
 });
