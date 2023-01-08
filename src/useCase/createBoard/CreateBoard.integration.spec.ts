@@ -34,4 +34,12 @@ describe("Integration test for CreateBoardUseCase", () => {
     const boards = await databaseGateway.getAll();
     expect(boards).to.be.length(BOARDS.length + 1);
   });
+
+  it("should throw an error if the board title is already in use", async () => {
+    const [{ title, proportion }] = BOARDS;
+
+    await expect(() =>
+      createBoardUseCase.execute({ title, proportion })
+    ).rejects.toThrow("Board title already in use");
+  });
 });
