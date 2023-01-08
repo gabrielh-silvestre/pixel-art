@@ -8,7 +8,7 @@ import type {
 
 import { BoardFactory } from "@domain/board/factory/Board.factory";
 
-import { DATABASE_GATEWAY } from "../../utils/constants/inject";
+import { DATABASE_GATEWAY } from "@constants";
 
 @injectable()
 export class CreateBoardUseCase {
