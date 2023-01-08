@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "types": ["vite/client"],
+    "types": ["vite/client", "vitest/globals"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -16,8 +16,15 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "paths": {
-      "@domain/*": ["./src/domain/*"]
+      "@domain/*": ["./src/domain/*"],
+      "@connector/*": ["./src/infra/connector/*"],
+      "@adapter/*": ["./src/infra/adapter/*"],
+      "@gateway/*": ["./src/infra/gateway/*"],
+      "@constants": ["./src/utils/constants/index.ts"],
+      "@mocks/*": ["./src/utils/mocks/*"]
     }
   },
   "include": ["src"],
