@@ -1,10 +1,10 @@
-import { Mock } from "vitest";
-
-import type { IHashMap } from "@domain/shared/hash-map/IHashMap.interface";
+import { SpyInstance } from "vitest";
 
 import { Board } from "./Board";
 import { Pixel } from "../value-object/Pixel";
 import { BoardException } from "../exception/Board.exception";
+
+import { BOARDS } from "@mocks/boards.mock";
 
 const FAKE_BOARD = {
   id: "fake-id",
@@ -13,14 +13,11 @@ const FAKE_BOARD = {
 };
 
 describe("Unit test for Board entity", () => {
-  let mockPixels: IHashMap<string, Pixel>;
+  let mockPixels: Pixel[][] = BOARDS[0].pixels;
+  let spyChangeColor: SpyInstance;
 
   beforeEach(() => {
-    mockPixels = {
-      get: vi.fn(),
-      add: vi.fn(),
-      size: FAKE_BOARD.size,
-    };
+    spyChangeColor = vi.spyOn(BOARDS[0].pixels[0][0], 'changeColor');
   });
 
   it("should create a new Board successfully", () => {
@@ -88,15 +85,11 @@ describe("Unit test for Board entity", () => {
       mockPixels
     );
 
-    const pixelId = "fake-pixel-id";
-    const newColor = "fake-color";
+    const newColor = "#131313";
 
-    const mockPixel = { changeColor: vi.fn() };
-    (mockPixels.get as Mock).mockReturnValue(mockPixel);
+    board.color([0, 0], newColor);
 
-    board.color(pixelId, newColor);
-
-    expect(mockPixel.changeColor).toBeCalledWith(newColor);
+    expect(spyChangeColor).toBeCalledWith(newColor);
   });
 
   it("should throw an error when trying to color a pixel that does not exist", () => {
@@ -107,11 +100,8 @@ describe("Unit test for Board entity", () => {
       mockPixels
     );
 
-    const pixelId = "fake-pixel-id";
     const newColor = "fake-color";
 
-    (mockPixels.get as Mock).mockReturnValue(null);
-
-    expect(() => board.color(pixelId, newColor)).to.throw(BoardException);
+    expect(() => board.color([10, 0], newColor)).to.throw(BoardException);
   });
 });

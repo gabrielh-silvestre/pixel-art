@@ -10,13 +10,13 @@ export class Board implements IBoard {
   private readonly _id: string;
   private _title: string;
   private _proportion: number;
-  private _pixels: IHashMap<string, Pixel>;
+  private _pixels: Pixel[][];
 
   constructor(
     id: string,
     title: string,
     proportion: number,
-    pixels: IHashMap<string, Pixel>
+    pixels: Pixel[][]
   ) {
     this._id = id;
     this._title = title;
@@ -36,7 +36,7 @@ export class Board implements IBoard {
     return this._proportion;
   }
 
-  get pixels(): IHashMap<string, Pixel> {
+  get pixels(): Pixel[][] {
     return this._pixels;
   }
 
@@ -58,8 +58,9 @@ export class Board implements IBoard {
     this._proportion = proportion;
   }
 
-  color(pixelId: string, newColor: string): void {
-    const foundPixel = this._pixels.get(pixelId);
+  color(position: [number, number], newColor: string): void {
+    const [x, y] = position;
+    const foundPixel = this._pixels[x]?.[y];
 
     if (!foundPixel) throw new BoardException("Pixel not found");
 

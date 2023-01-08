@@ -6,5 +6,5 @@ export interface IBoard {
   get id(): string;
   get title(): string;
   get proportion(): number;
-  get pixels(): IHashMap<string, Pixel>;
+  get pixels(): Pixel[][];
 }
