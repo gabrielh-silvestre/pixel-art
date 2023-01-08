@@ -17,16 +17,16 @@ export class CreateBoardUseCase {
     private readonly databaseGateway: IBoardDatabaseGateway
   ) {}
 
-  private async alreadyExists(title: string): Promise<boolean> {
-    return this.databaseGateway.existsByTitle(title);
+  private async isTitleAlreadyInUse(title: string): Promise<void | never> {
+    const alreadyExists = await this.databaseGateway.existsByTitle(title);
+    if (alreadyExists) throw new Error("Board title already in use");
   }
 
   async execute({
     title,
     proportion,
   }: InputCreateBoardDTO): Promise<OutputCreateBoardDTO | never> {
-    const boardAlreadyExists = await this.alreadyExists(title);
-    if (boardAlreadyExists) throw new Error("Board title already in use");
+    await this.isTitleAlreadyInUse(title);
 
     const newBoard = BoardFactory.create(title, proportion);
     await this.databaseGateway.create(newBoard);
