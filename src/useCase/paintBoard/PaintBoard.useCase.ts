@@ -9,12 +9,12 @@ export class PaintBoardUseCase {
 
   async execute({
     boardId,
-    pixelId,
+    position: [x, y],
     color,
   }: InputPaintBoardDTO): Promise<void> {
     const board = await this.databaseGateway.getById(boardId);
     if (!board) throw new Error("Board not found");
 
-    board.color(pixelId, color);
+    board.color([x, y], color);
   }
 }

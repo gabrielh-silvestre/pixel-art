@@ -30,8 +30,8 @@ describe("Integration test for PaintBoardUseCase", () => {
 
     await paintBoardUseCase.execute({
       boardId: board.id,
+      position: [0, 0],
       color: "#313131",
-      pixelId: "0-0",
     });
 
     expect(spyNotify).toHaveBeenCalled();

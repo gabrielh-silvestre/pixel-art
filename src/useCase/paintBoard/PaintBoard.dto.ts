@@ -1,5 +1,5 @@
 export interface InputPaintBoardDTO {
   boardId: string;
-  pixelId: string;
+  position: [number, number];
   color: string;
 }
