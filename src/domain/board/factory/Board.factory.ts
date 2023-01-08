@@ -21,6 +21,23 @@ export class BoardFactory {
     return pixels;
   }
 
+  private static createPixelsFrom(pixels: Pixel[][]): Pixel[][] {
+    const newPixels: Pixel[][] = [];
+
+    for (let x = 0; x < pixels.length; x++) {
+      for (let y = 0; y < pixels[x].length; y++) {
+        const { color } = pixels[x][y];
+
+        const pixel = new Pixel(color, x, y);
+
+        if (!newPixels[x]) newPixels[x] = [];
+        newPixels[x][y] = pixel;
+      }
+    }
+
+    return newPixels;
+  }
+
   static create(title: string, proportion: number): Board {
     const pixels = this.createPixels(proportion);
 
@@ -34,7 +51,7 @@ export class BoardFactory {
       board.id,
       board.title,
       board.proportion,
-      board.pixels
+      this.createPixelsFrom(board.pixels)
     );
 
     return newBoard;
