@@ -31,6 +31,13 @@ describe("Integration test for BoardDatabaseGateway", () => {
     expect(boards).to.be.length(BOARDS.length);
   });
 
+  it('should check if a board exists by "title"', async () => {
+    const [board] = BOARDS;
+    const exists = await databaseGateway.existsByTitle(board.title);
+
+    expect(exists).to.be.true;
+  });
+
   it("should save a board", async () => {
     await databaseGateway.create(NEW_BOARD);
 

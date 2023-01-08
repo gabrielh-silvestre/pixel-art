@@ -3,15 +3,17 @@ import { injectable } from "tsyringe";
 import type { IDatabaseAdapter } from "../../Database.adapter.interface";
 
 @injectable()
-export class BoardDatabaseLocalStorageAdapter<T> implements IDatabaseAdapter<T> {
+export class BoardDatabaseLocalStorageAdapter<T>
+  implements IDatabaseAdapter<T>
+{
   constructor(private readonly key: string) {}
 
   async getOne(dto: Partial<T>): Promise<T | null> {
     const items = await this.getAll();
-    if (!!items.length) return null;
+    if (items.length === 0) return null;
 
     const item = items.find((item: any) =>
-      Object.entries(dto).every(([key, value]) => item[key] === value)
+      Object.entries(dto).every(([key, value]) => item[`_${key}`] === value)
     );
 
     return item || null;

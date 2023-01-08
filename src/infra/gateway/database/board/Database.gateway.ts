@@ -34,6 +34,12 @@ export class BoardDatabaseGateway implements IBoardDatabaseGateway {
     );
   }
 
+  async existsByTitle(title: string): Promise<boolean> {
+    const foundBoard = await this.databaseAdapter.getOne({ title });
+
+    return !!foundBoard;
+  }
+
   create(board: IBoard): Promise<void> {
     return this.databaseAdapter.save(board);
   }

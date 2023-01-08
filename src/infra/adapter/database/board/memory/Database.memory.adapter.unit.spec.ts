@@ -21,6 +21,13 @@ describe("Unit test for BoardDatabaseMemoryAdapter", () => {
     expect(foundBoard).to.be.not.null;
   });
 
+  it('should get a board by "title"', async () => {
+    const [board] = BOARDS;
+    const foundBoard = await databaseAdapter.getOne({ title: board.title });
+
+    expect(foundBoard).to.be.not.null;
+  });
+
   it("should get all boards", async () => {
     const boards = await databaseAdapter.getAll();
 
